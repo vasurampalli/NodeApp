@@ -3,7 +3,7 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-	git 'https://github.com/rampallidocker/NodeApp'
+	git 'https://github.com/vasurampalli/NodeApp.git'
 
         checkout scm
     }
