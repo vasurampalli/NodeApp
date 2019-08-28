@@ -3,6 +3,7 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
+	git 'https://github.com/rampallidocker/NodeApp'
 
         checkout scm
     }
