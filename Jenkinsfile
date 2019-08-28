@@ -10,6 +10,7 @@ node {
 
     stage('Build image') {
         /* This builds the actual image */
+	sh "sudo usermod -a -G docker $vasurampalli"
 
         app = docker.build("rampallidocker/nodeapp")
     }
