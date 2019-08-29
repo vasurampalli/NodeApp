@@ -36,14 +36,9 @@ node {
     stage('Dev Deploy'){
 		//def dockerRun = "docker run -d -p 9090:8080 --name nodeapp ${dockerImage}"
 		  def dockerRun = "docker run -d -p 8000:8000 --name nodeapp rampallidocker/nodeapp:latest"
-		sshagent(['dev-docker']) {
-		    try{
-			    sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.16.239 ${dockerRun} "
-			}catch(e){
-			
-			
-			}
-			sh "ssh  ubuntu@172.31.16.239 ${dockerRun}"
+		sshagent(['dev-server']) {
+		        sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.16.239 ${dockerRun} "
+                        }
 		
+   }
 }
-    }
