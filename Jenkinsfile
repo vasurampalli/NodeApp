@@ -45,4 +45,4 @@ node {
 		       }
 		       sh "ssh  ubuntu@172.31.16.239 ${dockerRun}"
    }
-   }
+}
