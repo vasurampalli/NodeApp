@@ -33,17 +33,4 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
-    stage('Pull image') {
-        /* 
-			You would need to first register with DockerHub before you can pull images to your account
-		*/
-	steps {
-        sh 'docker login -u rampallidocker -p Sriniwaas1234@'
-        sh 'docker pull rampallidocker/nodeapp:latest    
-        //docker.withRegistry('https://registry.hub.docker.com', 'docker-id') {
-          //  app.pull("${env.BUILD_NUMBER}")
-            //app.pull("latest")
-            } 
-                echo "Trying to Pull Docker Build to DockerHub"
-    }
 }
