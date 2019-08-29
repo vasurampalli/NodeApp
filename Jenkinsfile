@@ -33,4 +33,14 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
+    stage('Pull image') {
+        /* 
+			You would need to first register with DockerHub before you can push images to your account
+		*/
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-id') {
+            app.pull("${env.BUILD_NUMBER}")
+            app.pull("latest")
+            } 
+                echo "Trying to Pull Docker Build to DockerHub"
+    }
 }
