@@ -29,15 +29,15 @@ node {
 		*/
         docker.withRegistry('https://registry.hub.docker.com', 'docker-id') {
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("2.0.0")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
     stage('Dev Deploy'){
 		//def dockerRun = "docker run -d -p 9090:8080 --name nodeapp ${dockerImage}"
-		  def dockerRun = "docker run -d -p 8000:8000 --name nodeapp rampallidocker/nodeapp:latest"
+		  def dockerRun = "docker run -d -p 8000:8000 --name nodeapp rampallidocker/nodeapp:2.0.0"
 		sshagent(['dev-server']) {
-		        sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.16.239 ${dockerRun} docker rm -f nodeapp:latest"
+		        sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.16.239 ${dockerRun}"
                         }
 		
    }
